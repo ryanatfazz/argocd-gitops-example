@@ -1,7 +1,7 @@
 namePrefix: team-a-
 
 resources:
-  - ../../apps/nginx/argocd/prod.yaml
+  - ../../apps/nginx/overlays/prod
 
 patches:
   - path: destination.yaml
