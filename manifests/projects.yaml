@@ -1,0 +1,16 @@
+projects:
+  - name: team-a
+    finalizers:
+      - resources-finalizer.argocd.argoproj.io
+    description: An ArgoCD project for the ArgoCD apps owned by team-a team
+    destinations:
+      - namespace: "*"
+        server: https://kubernetes.default.svc
+    clusterResourceWhitelist:
+      - group: "*"
+        kind: "*"
+    namespaceResourceWhitelist:
+      - group: "*"
+        kind: "*"
+    sourceRepos:
+      - git@github.com:ryanatfazz/argocd-gitops-example.git

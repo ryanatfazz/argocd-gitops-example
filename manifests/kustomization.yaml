@@ -1,0 +1,12 @@
+namespace: argocd
+
+resources:
+  - team-a/appset.yaml
+
+helmCharts:
+- name: argocd-apps
+  repo: https://argoproj.github.io/argo-helm
+  version: 1.0.0
+  releaseName: example-projects
+  namespace: argocd
+  valuesFile: ./projects.yaml

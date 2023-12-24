@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: team-a-apps
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: default
+        url: https://kubernetes.default.svc
+        values:
+          path: "manifests/team-a/clusters/default"
+  template:
+    metadata:
+      name: "team-a-apps-{{cluster}}"
+    spec:
+      project: "team-a"
+      source:
+        repoURL: git@github.com:ryanatfazz/argocd-gitops-example.git
+        targetRevision: HEAD
+        path: "{{values.path}}"
+      destination:
+        server: '{{url}}'
+        namespace: argocd
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true

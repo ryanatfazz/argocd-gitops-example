@@ -1,0 +1,9 @@
+namePrefix: team-a-
+
+resources:
+  - ../../apps/nginx/argocd/prod.yaml
+
+patches:
+  - path: destination.yaml
+    target:
+      kind: Application
