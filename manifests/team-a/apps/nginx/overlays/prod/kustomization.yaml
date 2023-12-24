@@ -1,6 +1,2 @@
 resources:
   - "../../base"
-
-patches:
-  - target:
-    path
