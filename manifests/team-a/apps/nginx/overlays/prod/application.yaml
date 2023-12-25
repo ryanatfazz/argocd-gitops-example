@@ -7,7 +7,7 @@ spec:
   project: team-a
   source:
     repoURL: git@github.com:ryanatfazz/argocd-gitops-example.git
-    path: manifests/team-a/apps/nginx/overlays/base
+    path: manifests/team-a/apps/nginx/overlays/prod
     targetRevision: HEAD
     kustomize:
       patches:
