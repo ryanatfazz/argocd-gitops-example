@@ -1,4 +1,9 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
-  name: nginx-prod
+  name: nginx
+  namespace: argocd
+source:
+  kustomize:
+    patchesStrategicMerge:
+      - deployment-patch.yaml
