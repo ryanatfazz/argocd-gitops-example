@@ -1,7 +1,7 @@
 namePrefix: team-a-
 
 resources:
-  - ../../apps/nginx/overlays/prod
+  - ../../apps/nginx/overlays/prod/application.yaml
 
 patches:
   - path: destination.yaml
