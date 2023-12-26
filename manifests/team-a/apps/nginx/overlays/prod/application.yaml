@@ -7,13 +7,8 @@ spec:
   project: team-a
   source:
     repoURL: git@github.com:ryanatfazz/argocd-gitops-example.git
-    path: manifests/team-a/apps/nginx/overlays/prod
+    path: manifests/team-a/apps/nginx/base
     targetRevision: HEAD
-    kustomize:
-      patches:
-        - path: deployment-patch.yaml
-          target:
-            kind: Deployment
   destination:
     namespace: nginx
   syncPolicy:
