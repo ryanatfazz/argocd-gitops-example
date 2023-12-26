@@ -1,5 +1,5 @@
 resources:
-  - ../../base
+  - ../../argocd
 
 patchesStrategicMerge:
   - deployment-patch.yaml
