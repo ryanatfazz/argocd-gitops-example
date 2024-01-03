@@ -9,11 +9,8 @@ spec:
     - repoURL: git@github.com:ryanatfazz/argocd-gitops-example.git
       path: manifests/team-a/apps/nginx/base
       targetRevision: HEAD
-      kustomize:
-        patches:
-          - patch: patches/patch-deployment.yaml
     - repoURL: git@github.com:ryanatfazz/argocd-gitops-example.git
-      path: manifests/team-a/apps/nginx/overlays/prod/patches
+      path: manifests/team-a/apps/nginx/overlays/prod
       targetRevision: HEAD
   destination:
     namespace: nginx
