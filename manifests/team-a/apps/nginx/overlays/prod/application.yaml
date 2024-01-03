@@ -5,10 +5,13 @@ metadata:
   namespace: argocd
 spec:
   project: team-a
-  source:
-    repoURL: git@github.com:ryanatfazz/argocd-gitops-example.git
-    path: manifests/team-a/apps/nginx/base
-    targetRevision: HEAD
+  sources:
+    - repoURL: git@github.com:ryanatfazz/argocd-gitops-example.git
+      path: manifests/team-a/apps/nginx/base
+      targetRevision: HEAD
+    - repoURL: git@github.com:ryanatfazz/argocd-gitops-example.git
+      path: manifests/team-a/apps/nginx/overlays/prod/patches
+      targetRevision: HEAD
   destination:
     namespace: nginx
   syncPolicy:
