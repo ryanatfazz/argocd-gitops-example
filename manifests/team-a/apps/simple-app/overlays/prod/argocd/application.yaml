@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: simple-app
+  namespace: argocd
+spec:
+  project: team-a
+  sources:
+    - repoURL: git@github.com:ryanatfazz/argocd-gitops-example.git
+      path: manifests/team-a/apps/simple-app/helm
+      targetRevision: HEAD
+      helm:
+        releaseName: simple-app
+        values: |
+          replicaCount: 2
+          image:
+            tag: "18.19"
+    - repoURL: git@github.com:ryanatfazz/argocd-gitops-example.git
+      targetRevision: HEAD
+      ref: values
+  destination:
+    namespace: simple-app
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

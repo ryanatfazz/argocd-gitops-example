@@ -2,6 +2,7 @@ namePrefix: team-a-
 
 resources:
   - ../../apps/nginx/overlays/prod
+  - ../../apps/simple-app/overlays/prod
 
 patches:
   - path: destination.yaml
