@@ -12,7 +12,7 @@ spec:
       helm:
         releaseName: simple-app
         values: |
-          resource:
+          resources:
             limits:
               cpu: 300
               memory: 512Mi
