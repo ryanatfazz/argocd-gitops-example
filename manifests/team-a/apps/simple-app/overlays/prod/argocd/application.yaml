@@ -12,14 +12,15 @@ spec:
       helm:
         releaseName: simple-app
         values: |
-          replicaCount: 2
-          image:
-            tag: "18.19"
+          resource:
+            limits:
+              cpu: 300
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
     - repoURL: git@github.com:ryanatfazz/argocd-gitops-example.git
       targetRevision: HEAD
       ref: values
   destination:
-    namespace: simple-app
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
+    namespace: default
