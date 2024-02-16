@@ -1,0 +1,22 @@
+name: Read projects config
+on:
+  workflow_dispatch:
+    inputs:
+      deployment:
+        description: "What do you want to deploy?"
+        type: choice
+        options: ${{ fromJson(file('.projects.json')).fazz }}
+
+env:
+  DAY_OF_WEEK: Monday
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Print Hello World
+      run: echo "Hello, World!"
