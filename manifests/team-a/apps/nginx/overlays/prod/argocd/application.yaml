@@ -3,6 +3,13 @@ kind: Application
 metadata:
   name: nginx
   namespace: argocd
+  annotations:
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: fazzops-announce
+    notifications.argoproj.io/subscribe.on-deleted.slack: fazzops-announce
+    notifications.argoproj.io/subscribe.on-deployed.slack: fazzops-announce
+    notifications.argoproj.io/subscribe.on-sync-failed.slack: fazzops-announce
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.slack: fazzops-announce
+    notifications.argoproj.io/subscribe.on-health-degraded.slack: fazzops-announce
 spec:
   project: team-a
   sources:
