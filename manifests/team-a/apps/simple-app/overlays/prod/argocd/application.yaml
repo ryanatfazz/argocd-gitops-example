@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: simple-app
   namespace: argocd
+  annotations:
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: fazzops-announce
 spec:
   project: team-a
   sources:
@@ -14,13 +16,10 @@ spec:
         values: |
           resources:
             limits:
-              cpu: 300
+              cpu: 300m
               memory: 512Mi
             requests:
               cpu: 100m
               memory: 128Mi
-    - repoURL: git@github.com:ryanatfazz/argocd-gitops-example.git
-      targetRevision: HEAD
-      ref: values
   destination:
     namespace: default
